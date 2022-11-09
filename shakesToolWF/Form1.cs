@@ -109,6 +109,8 @@ namespace shakesToolWF
             GetWinChancesAgainstBosses();
 
             driver.Quit();
+            Result();
+
         }
 
         private void GetWinChancesAgainstBosses()
@@ -138,6 +140,7 @@ namespace shakesToolWF
 
                 fights.Add(result);
             }
+
         }
 
         private void OpenBrowser()
@@ -179,6 +182,14 @@ namespace shakesToolWF
         }
 
         private void ResultClick(object sender, EventArgs e)
+        {
+            Result resultForm = new Result();
+            resultForm.usernames = usernames;
+            resultForm.fights = fights;
+            resultForm.ShowDialog(this);
+        }
+
+        private void Result()
         {
             Result resultForm = new Result();
             resultForm.usernames = usernames;
